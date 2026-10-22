@@ -17,7 +17,7 @@ kwtSMS supports both promotional and transactional messaging, OTP delivery, bulk
 - **Laravel Notifications Integration**: Send SMS using Laravel's built-in notification system
 - **Simple API**: Clean, fluent message builder with `KwtSmsMessage::create()`
 - **Custom Sender ID**: Override the default sender ID per message
-- **Test Mode Support**: Send test messages without consuming credits during development
+- **Test Mode Support**: Test messages are queued but not delivered. Their credits are held until you delete them from the Sending Queue in your kwtsms.com account.
 - **Auto-Discovery**: Laravel package auto-discovery, no manual service provider registration needed
 - **Configurable**: Publish and customize the config file to match your setup
 - **Lightweight**: Minimal dependencies, uses Laravel's HTTP client under the hood

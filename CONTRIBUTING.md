@@ -2,7 +2,7 @@
 
 Contributions are welcome and will be fully credited.
 
-We accept contributions via Pull Requests on [GitHub](https://github.com/boxlinknet/kwtsms-notification-channel).
+We accept contributions via Pull Requests on [GitHub](https://github.com/kwtsms/kwtsms-notification-channel).
 
 ## Pull Requests
 

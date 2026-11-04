@@ -142,7 +142,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [BoxLink](https://github.com/boxlinknet)
+- [BoxLink](https://github.com/kwtsms)
 - [All Contributors](../../contributors)
 
 ## License

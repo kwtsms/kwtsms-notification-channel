@@ -1,7 +1,7 @@
 {
     "name": "kwtsms/kwtsms-notification-channel",
     "description": "kwtSMS notification channel for Laravel",
-    "homepage": "https://github.com/boxlinknet/kwtsms-notification-channel",
+    "homepage": "https://github.com/kwtsms/kwtsms-notification-channel",
     "license": "MIT",
     "keywords": [
         "kwtsms",

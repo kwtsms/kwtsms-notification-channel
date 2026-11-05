@@ -97,7 +97,7 @@ Add the `routeNotificationForKwtSms` method to your notifiable model:
 ```php
 public function routeNotificationForKwtSms($notification): string
 {
-    return $this->phone; // International format: 96598765432
+    return $this->phone; // International format: 965XXXXXXXX
 }
 ```
 

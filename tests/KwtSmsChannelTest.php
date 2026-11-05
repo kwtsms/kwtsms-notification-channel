@@ -33,7 +33,7 @@ class KwtSmsChannelTest extends TestCase
         $this->client
             ->shouldReceive('send')
             ->once()
-            ->with('96598765432', 'Test message', 'KWT-SMS')
+            ->with('965XXXXXXXX', 'Test message', 'KWT-SMS')
             ->andReturn(['result' => 'OK', 'msg-id' => '12345']);
 
         $response = $this->channel->send(new TestNotifiable(), new TestNotification());
@@ -77,7 +77,7 @@ class KwtSmsChannelTest extends TestCase
         $this->client
             ->shouldReceive('send')
             ->once()
-            ->with('96598765432', 'String message', 'KWT-SMS')
+            ->with('965XXXXXXXX', 'String message', 'KWT-SMS')
             ->andReturn(['result' => 'OK']);
 
         $response = $this->channel->send(new TestNotifiable(), new TestStringNotification());
@@ -92,7 +92,8 @@ class TestNotifiable
 
     public function routeNotificationForKwtSms(): string
     {
-        return '96598765432';
+        // 2026-11-05 11:10 +03: pass-through placeholder 965XXXXXXXX (client is mocked), the old sample mobile number belongs to a real person, int-testnumber
+        return '965XXXXXXXX';
     }
 }
 

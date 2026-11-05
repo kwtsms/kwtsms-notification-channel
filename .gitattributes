@@ -1,0 +1,6 @@
+# 2026-11-06 01:04 +03: keep tests and dev config out of the Packagist dist, ci-dryrun-all
+/tests export-ignore
+/phpunit.xml export-ignore
+/.styleci.yml export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore

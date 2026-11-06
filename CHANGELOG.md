@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Requests to kwtSMS carry the integration name and version (no personal data) so kwtSMS can see which integrations are in use.
+- Laravel 13 support: illuminate/support and illuminate/notifications ^13.0 now allowed (tested on Laravel 12 and 13).
+- Depends on kwtsms/kwtsms-php (the old package name kwtsms/kwtsms is abandoned on Packagist and printed a warning on install).
 
 ### Changed
 

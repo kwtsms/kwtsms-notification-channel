@@ -1,0 +1,50 @@
+# FILE:      .github/workflows/tests.yml
+# CREATED:   2026-11-07 15:05 +03
+# TASK:      rel-laravel-111 (same Laravel 10 to 13 matrix as kwtsms-laravel)
+# AUTHOR:    M Alhassoun
+# WHAT:      Runs the package's PHPUnit tests on Laravel 10 (PHP 8.1), 11 (8.2), 12 (8.3) and 13 (8.4).
+# WHY:       composer.json declares Laravel 10 to 13; the repo had no CI, so none of it was tested on push.
+# USAGE:     Runs on pushes and pull requests to main.
+# DEPENDS:   None (the tests mock the API; no credentials).
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: "Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { laravel: "10", testbench: "8", php: "8.1" }
+          - { laravel: "11", testbench: "9", php: "8.2" }
+          - { laravel: "12", testbench: "10", php: "8.3" }
+          - { laravel: "13", testbench: "11", php: "8.4" }
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ matrix.php }}"
+          coverage: none
+
+      # Laravel 11's framework releases are all behind composer advisory PKSA-b41t-wbzk-9q51 (past security
+      # support); the block is lifted here only to test this package on it.
+      - name: Install dependencies for Laravel ${{ matrix.laravel }}
+        run: |
+          composer config audit.block-insecure false
+          composer require --no-interaction --no-update "illuminate/support:^${{ matrix.laravel }}.0" "illuminate/notifications:^${{ matrix.laravel }}.0"
+          composer require --dev --no-interaction --no-update "orchestra/testbench:^${{ matrix.testbench }}.0"
+          composer update --no-interaction --prefer-dist --no-progress --with-all-dependencies
+
+      - name: Run tests
+        run: vendor/bin/phpunit

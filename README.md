@@ -6,6 +6,8 @@
 
 This package makes it easy to send notifications using [kwtSMS](https://www.kwtsms.com) with Laravel.
 
+All kwtSMS integrations: [kwtsms.com/integrations](https://www.kwtsms.com/integrations/)
+
 ## About kwtSMS
 
 [kwtSMS](https://www.kwtsms.com) is Kuwait's leading SMS gateway, providing reliable SMS delivery for businesses across Kuwait and internationally. Unlike international providers (Twilio, Infobip, etc.), kwtSMS is a local Kuwaiti provider with direct carrier connections, ensuring fast and reliable delivery to all Kuwaiti mobile networks (Zain, Ooredoo, STC, Virgin Mobile).
